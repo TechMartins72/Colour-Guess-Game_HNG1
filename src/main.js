@@ -1,11 +1,15 @@
 import "./style.css";
 const target_color_box = document.getElementById("target_color_box"),
-  instruction_modal = document.getElementById("instruction_modal"),
   instruction_container = document.getElementById("instruction_container"),
   close = document.getElementById("close"),
   score = document.getElementById("score"),
   instruction_btn = document.getElementById("instruction_btn"),
-  option_container = document.getElementById("option_container");
+  color_boxes = document.getElementsByClassName("color_box"),
+  result = document.getElementById("result"),
+  result_container = document.getElementById("result_container"),
+  instruction = document.getElementById("instruction"),
+  modal = document.getElementById("modal"),
+  replay_btn = document.getElementById("reset");
 
 const colors_array = [
   "#FF0000", // Red
@@ -29,3 +33,68 @@ const colors_array = [
   "#FFA07A", // Light Salmon
   "#E6E6FA", // Lavender
 ];
+
+const colorBoxesArray = Array.from(color_boxes);
+let _score = 0;
+let current_color_options = [];
+
+function generateUniqueColors(array, numUnique) {
+  const uniqueColors = new Set();
+
+  while (uniqueColors.size < numUnique) {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    const randomColor = array[randomIndex];
+    uniqueColors.add(randomColor);
+  }
+
+  return Array.from(uniqueColors);
+}
+
+const sixUniqueColors = generateUniqueColors(colors_array, 6);
+
+instruction_btn.addEventListener("click", () => {
+  modal.style.visibility = "visible";
+  result_container.style.display = "none";
+  instruction.style.display = "block";
+});
+
+close.addEventListener("click", () => {
+  modal.style.visibility = "hidden";
+});
+
+replay_btn.addEventListener("click", () => {
+  modal.style.visibility = "hidden";
+  target_color_box.style.backgroundColor = "transparent";
+  target_color_box.classList.add("not_selected");
+});
+
+score.innerText = _score;
+
+const gameStart = () => {
+  colorBoxesArray.forEach((color_box, index) => {
+    color_box.style.backgroundColor = sixUniqueColors[index];
+    color_box.addEventListener("click", (e) => {
+      let _targetColor =
+        sixUniqueColors[Math.floor(Math.random() * sixUniqueColors.length)];
+      target_color_box.style.backgroundColor = _targetColor;
+      target_color_box.classList.remove("not_selected");
+
+      resultChecker(sixUniqueColors[index], _targetColor);
+    });
+  });
+};
+
+const resultChecker = (first, second) => {
+  if (first == second) {
+    _score++;
+    score.innerText = _score;
+    result.innerText = "YOU ARE CORRECT 🏆😃";
+  } else {
+    result.innerText = "YOU ARE WRONG 😢😓";
+  }
+  result_container.style.display = "block";
+  instruction.style.display = "none";
+  modal.style.visibility = "visible";
+};
+
+gameStart();

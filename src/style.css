@@ -61,19 +61,24 @@ main {
 #target_color_box.not_selected {
   border: 3px dotted #333;
 }
-#option_container {
+#options_container {
   width: 100%;
   display: flex;
   gap: 1rem;
 }
-#option_container span {
-  background: skyblue;
+#options_container button {
+  border: 1px solid gray;
   height: 5rem;
   flex: 1;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: all ease-in-out 0.2s;
 }
-button {
+#options_container button:hover {
+  transform: scale(1.07);
+}
+#instruction_btn,
+#result_container button {
   padding: 0.5rem 1rem;
   border: none;
   outline: none;
@@ -82,24 +87,31 @@ button {
   background-color: red;
   cursor: pointer;
   font-weight: bold;
+  transition: all ease-in-out 0.2s;
 }
-#instruction_modal {
+#instruction_btn:hover,
+#result_container button:hover {
+  transform: scale(1.07);
+}
+#modal {
   visibility: hidden;
+  transition: 0.2s ease-in-out;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(1rem);
   z-index: 10;
 }
-.instruction_container {
+#instruction_container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 25rem;
+  max-width: 31rem;
+  width: 85%;
   text-align: center;
   background-color: #fff;
   border-radius: 1rem;
@@ -109,8 +121,18 @@ article {
   padding: 2.5rem 3rem;
   position: relative;
 }
+article span {
+  font-weight: 700;
+}
+#result_container {
+  display: none;
+  padding: 2.5rem 3rem;
+}
+#result_container button {
+  margin-top: 1rem;
+}
 .bi {
-  font-size: 1.5 rem;
+  font-size: 1.5rem;
   color: black;
   position: absolute;
   top: 1.5rem;
@@ -118,10 +140,10 @@ article {
   cursor: pointer;
 }
 @media (max-width: 500px) {
-  #option_container span {
+  #options_container button {
     height: 3.5rem;
   }
-  #option_container {
+  #options_container {
     gap: 0.65rem;
   }
   #target_color_box {
@@ -131,4 +153,7 @@ article {
     max-width: 25rem;
     width: 75%;
   }
+}
+
+@keyframes animate {
 }

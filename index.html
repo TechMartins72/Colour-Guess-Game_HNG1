@@ -12,30 +12,40 @@
   </head>
   <body>
     <main id="app">
-      <div id="instruction_modal">
-        <div class="instruction_container">
-          <article>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
-            voluptates necessitatibus omnis tenetur ratione voluptate hic ipsa
-            delectus sit dolorem inventore, consequatur itaque ea, ex blanditiis
-            earum eius illum fugit.
+      <div id="modal">
+        <div id="instruction_container">
+          <article id="instruction">
+            <span> Hi! Welcome to Color Guessing Game😊 <br /> </span>
+            <br />
+            The rule of the game is simple buh not easy 😁.
+            <br />Click on one the six button as a guess with each having
+            thesame probability) to be the target color of our main box. If you
+            are correct, you get +1 point and if you are not correct, you get
+            nothing.
+            <br />
+            <br />
+            <span> Goodluck Gamers! </span>
             <i class="bi bi-x-lg" id="close"></i>
           </article>
+          <div id="result_container">
+            <h2 id="result"></h2>
+            <button id="reset">Play Again</button>
+          </div>
         </div>
       </div>
       <div id="header">
-        <h3>SCORE: <span id="score">0</span></h3>
+        <h3>SCORE: <span id="score"></span></h3>
         <button id="instruction_btn">INSTRUCTIONS</button>
       </div>
       <div id="color_container">
         <div id="target_color_box" class="not_selected"></div>
-        <div id="option_container">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
+        <div id="options_container">
+          <button class="color_box"></button>
+          <button class="color_box"></button>
+          <button class="color_box"></button>
+          <button class="color_box"></button>
+          <button class="color_box"></button>
+          <button class="color_box"></button>
         </div>
       </div>
     </main>
