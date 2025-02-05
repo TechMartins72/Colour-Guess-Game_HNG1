@@ -4,16 +4,31 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Colour Guess</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <title>Colour Guess Game</title>
   </head>
   <body>
     <main id="app">
-      <div id="header" >
-        <span>SCORE: 5</span>
+      <div id="instruction_modal">
+        <div class="instruction_container">
+          <article>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi
+            voluptates necessitatibus omnis tenetur ratione voluptate hic ipsa
+            delectus sit dolorem inventore, consequatur itaque ea, ex blanditiis
+            earum eius illum fugit.
+            <i class="bi bi-x-lg" id="close"></i>
+          </article>
+        </div>
+      </div>
+      <div id="header">
+        <h3>SCORE: <span id="score">0</span></h3>
         <button id="instruction_btn">INSTRUCTIONS</button>
       </div>
       <div id="color_container">
-        <div id="target_color_box"></div>
+        <div id="target_color_box" class="not_selected"></div>
         <div id="option_container">
           <span></span>
           <span></span>
