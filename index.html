@@ -12,30 +12,9 @@
   </head>
   <body>
     <main id="app">
-      <div id="modal">
-        <div id="instruction_container">
-          <article id="instruction" data-testid="gameInstructions">
-            <span> Hi! Welcome to Color Guessing Game😊 <br /> </span>
-            <br />
-            The rule of the game is simple but not easy 😁.
-            <br />Click on one of the six button as a guess, with each having
-            thesame probability to be the correct guess of target color box. If
-            you are correct, you get +1 point and if you are not correct, you
-            get nothing.
-            <br />
-            <br />
-            <span> Goodluck Gamers! 👋 </span>
-            <i class="bi bi-x-lg" id="close"></i>
-          </article>
-          <div id="result_container">
-            <h2 id="result" data-testid="gameStatus"></h2>
-            <button id="reset" data-testid="newGameButton">Play Again</button>
-          </div>
-        </div>
-      </div>
       <div id="header">
         <h3 data-testid="score">SCORE: <span id="score"></span></h3>
-        <button id="instruction_btn">INSTRUCTIONS</button>
+        <button id="reset" data-testid="newGameButton">Start Again</button>
       </div>
       <div id="color_container">
         <div
@@ -43,6 +22,7 @@
           data-testid="colorBox"
           class="not_selected"
         ></div>
+        <h4 id="instruction" data-testid="gameInstructions">Guess the Color</h4>
         <div id="options_container">
           <button class="color_box" data-testid="colorOption"></button>
           <button class="color_box" data-testid="colorOption"></button>
@@ -51,6 +31,7 @@
           <button class="color_box" data-testid="colorOption"></button>
           <button class="color_box" data-testid="colorOption"></button>
         </div>
+        <p id="status"></p>
       </div>
     </main>
     <script type="module" src="/src/main.js"></script>
