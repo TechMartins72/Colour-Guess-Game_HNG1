@@ -33,10 +33,11 @@ const colors_array = [
   "#FFA07A", // Light Salmon
   "#E6E6FA", // Lavender
 ];
-
+let sixUniqueColors;
+let option;
+let target;
 const colorBoxesArray = Array.from(color_boxes);
 let _score = 0;
-let current_color_options = [];
 
 function generateUniqueColors(array, numUnique) {
   const uniqueColors = new Set();
@@ -50,27 +51,37 @@ function generateUniqueColors(array, numUnique) {
   return Array.from(uniqueColors);
 }
 
-const sixUniqueColors = generateUniqueColors(colors_array, 6);
-
 instruction_btn.addEventListener("click", () => {
-  modal.style.visibility = "visible";
+  modal.style.display = "block";
   result_container.style.display = "none";
   instruction.style.display = "block";
+  instruction_container.style.animation = "slideDown";
+  instruction_container.style.animationDuration = "500ms";
 });
 
 close.addEventListener("click", () => {
-  modal.style.visibility = "hidden";
+  modal.style.display = "none";
 });
 
+const addscore = () => {
+  if (option == target) {
+    _score++;
+    score.innerText = _score;
+  }
+};
+
 replay_btn.addEventListener("click", () => {
-  modal.style.visibility = "hidden";
+  modal.style.display = "none";
   target_color_box.style.backgroundColor = "transparent";
   target_color_box.classList.add("not_selected");
+  addscore();
+  gameStart();
 });
 
 score.innerText = _score;
 
 const gameStart = () => {
+  sixUniqueColors = generateUniqueColors(colors_array, 6);
   colorBoxesArray.forEach((color_box, index) => {
     color_box.style.backgroundColor = sixUniqueColors[index];
     color_box.addEventListener("click", (e) => {
@@ -79,22 +90,26 @@ const gameStart = () => {
       target_color_box.style.backgroundColor = _targetColor;
       target_color_box.classList.remove("not_selected");
 
-      resultChecker(sixUniqueColors[index], _targetColor);
+      setTimeout(() => {
+        resultChecker(sixUniqueColors[index], _targetColor);
+      }, 500);
     });
   });
 };
 
-const resultChecker = (first, second) => {
-  if (first == second) {
-    _score++;
-    score.innerText = _score;
+const resultChecker = (option_color, target_box_color) => {
+  option = option_color;
+  target = target_box_color;
+  if (option_color == target_box_color) {
     result.innerText = "YOU ARE CORRECT 🏆😃";
   } else {
     result.innerText = "YOU ARE WRONG 😢😓";
   }
   result_container.style.display = "block";
+  instruction_container.style.animation = "slideDown";
+  instruction_container.style.animationDuration = "500ms";
   instruction.style.display = "none";
-  modal.style.visibility = "visible";
+  modal.style.display = "block";
 };
 
 gameStart();

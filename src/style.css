@@ -59,7 +59,7 @@ main {
   align-items: center;
 }
 #target_color_box.not_selected {
-  border: 3px dotted #333;
+  border: 3px dotted #c4acac;
 }
 #options_container {
   width: 100%;
@@ -67,6 +67,7 @@ main {
   gap: 1rem;
 }
 #options_container button {
+  animation: slideUp 0.7s;
   border: 1px solid gray;
   height: 5rem;
   flex: 1;
@@ -94,14 +95,13 @@ main {
   transform: scale(1.07);
 }
 #modal {
-  visibility: hidden;
-  transition: 0.2s ease-in-out;
+  display: none;
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(1rem);
   z-index: 10;
 }
@@ -155,5 +155,24 @@ article span {
   }
 }
 
-@keyframes animate {
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translate(-50%, 70%) scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
 }

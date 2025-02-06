@@ -14,38 +14,42 @@
     <main id="app">
       <div id="modal">
         <div id="instruction_container">
-          <article id="instruction">
+          <article id="instruction" data-testid="gameInstructions">
             <span> Hi! Welcome to Color Guessing Game😊 <br /> </span>
             <br />
-            The rule of the game is simple buh not easy 😁.
-            <br />Click on one the six button as a guess with each having
-            thesame probability) to be the target color of our main box. If you
-            are correct, you get +1 point and if you are not correct, you get
-            nothing.
+            The rule of the game is simple but not easy 😁.
+            <br />Click on one of the six button as a guess, with each having
+            thesame probability to be the correct guess of target color box. If
+            you are correct, you get +1 point and if you are not correct, you
+            get nothing.
             <br />
             <br />
-            <span> Goodluck Gamers! </span>
+            <span> Goodluck Gamers! 👋 </span>
             <i class="bi bi-x-lg" id="close"></i>
           </article>
           <div id="result_container">
-            <h2 id="result"></h2>
-            <button id="reset">Play Again</button>
+            <h2 id="result" data-testid="gameStatus"></h2>
+            <button id="reset" data-testid="newGameButton">Play Again</button>
           </div>
         </div>
       </div>
       <div id="header">
-        <h3>SCORE: <span id="score"></span></h3>
+        <h3 data-testid="score">SCORE: <span id="score"></span></h3>
         <button id="instruction_btn">INSTRUCTIONS</button>
       </div>
       <div id="color_container">
-        <div id="target_color_box" class="not_selected"></div>
+        <div
+          id="target_color_box"
+          data-testid="colorBox"
+          class="not_selected"
+        ></div>
         <div id="options_container">
-          <button class="color_box"></button>
-          <button class="color_box"></button>
-          <button class="color_box"></button>
-          <button class="color_box"></button>
-          <button class="color_box"></button>
-          <button class="color_box"></button>
+          <button class="color_box" data-testid="colorOption"></button>
+          <button class="color_box" data-testid="colorOption"></button>
+          <button class="color_box" data-testid="colorOption"></button>
+          <button class="color_box" data-testid="colorOption"></button>
+          <button class="color_box" data-testid="colorOption"></button>
+          <button class="color_box" data-testid="colorOption"></button>
         </div>
       </div>
     </main>
