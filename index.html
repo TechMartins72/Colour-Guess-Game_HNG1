@@ -17,12 +17,10 @@
         <button id="reset" data-testid="newGameButton">Start Again</button>
       </div>
       <div id="color_container">
-        <div
-          id="target_color_box"
-          data-testid="colorBox"
-          class="not_selected"
-        ></div>
-        <h4 id="instruction" data-testid="gameInstructions">Guess the Color</h4>
+        <div id="target_color_box" data-testid="colorBox"></div>
+        <h4 id="instruction" data-testid="gameInstructions">
+          Guess the Correct Color!
+        </h4>
         <div id="options_container">
           <button class="color_box" data-testid="colorOption"></button>
           <button class="color_box" data-testid="colorOption"></button>
@@ -31,7 +29,7 @@
           <button class="color_box" data-testid="colorOption"></button>
           <button class="color_box" data-testid="colorOption"></button>
         </div>
-        <p id="status"></p>
+        <p id="status" data-testid="gameStatus"></p>
       </div>
     </main>
     <script type="module" src="/src/main.js"></script>
